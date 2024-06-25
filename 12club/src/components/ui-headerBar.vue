@@ -6,11 +6,11 @@
 		}">
 
 		<div class="mx-2 mr-4 flex h-[45px] w-[45px] cursor-pointer justify-center items-center">
-			<img src="https://vio.vin/site-favicon.ico" class="object-cover rounded-xl shadow-md">
+			<img src='@/assets/pic.avif' class="object-cover rounded-xl shadow-md">
 		</div>
 
 		<div
-			class="flex flex-row w-full justify-center items-center lg:w-[80%] md:w-full sm:w-full xl:max-w-[1000px] xl:w-[80%]">
+			class="flex flex-row w-full justify-center items-center mr-4 lg:w-[80%] md:w-full sm:w-full xl:max-w-[1000px] xl:w-[80%]">
 			<div class="flex flex-row w-full justify-around items-center">
 				<div class="justify-center items-center z-1000 lg:flex md:flex sm:flex xl:flex"
 					:class="{ fixed: isFixed, relative: !isFixed }">
@@ -18,16 +18,17 @@
 						...styles,
 						position: isFixed ? 'relative' : 'fixed',
 					}">
-						<ul class="border rounded-full flex flex-row h-[40px] items-center transition-all" :class="{
-							'mt-[52px] dark:border-[#222] border-[#eee] bg-[#f5f5f5] dark:bg-dark shadow backdrop-blur-2xl':
-								!isFixed,
-							'dark:border-[#222] border-[#eee]  bg-[#f5f5f5] dark:bg-dark shadow backdrop-blur bg-opacity-50':
-								!isOutTop,
-							'border-transparent': isOutTop,
-						}">
+						<ul class="border rounded-full flex flex-row h-[40px] items-center transition-all dark:text-white"
+							:class="{
+								'mt-[52px] border-[#eee] bg-[#f5f5f5] dark:bg-slate-700 dark:border-slate-600 dark:shadow-slate-700  shadow backdrop-blur-2xl':
+									!isFixed,
+								' border-[#eee]  bg-[#f5f5f5] dark:bg-slate-700 dark:border-slate-600 dark:shadow-slate-700 shadow backdrop-blur bg-opacity-50':
+									!isOutTop,
+								'border-transparent': isOutTop,
+							}">
 							<li v-for="link in links" :key="link.href">
 								<RouterLink :to="`${link.href}`"
-									class="px-3 mx-1 py-2 transition-all duration-150 font-normal hover:text-sky-400 hover:cursor-pointer hover:font-bold"
+									class="px-3 mx-1 py-2 transition-all duration-150 hover:text-sky-400 hover:cursor-pointer font-bold"
 									:prefetch="true">
 									{{ link.name }}
 								</RouterLink>
@@ -38,9 +39,7 @@
 			</div>
 		</div>
 
-		<div class="hidden w-[50px] lg:flex md:flex sm:flex xl:flex">
-			<uiDarkToggle></uiDarkToggle>
-		</div>
+		<uiDarkToggle></uiDarkToggle>
 	</div>
 </template>
 
