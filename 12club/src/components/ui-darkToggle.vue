@@ -1,6 +1,6 @@
 <template>
     <button
-        class="w-[36px] h-[36px] mr-5 border hover:bg-gray-100 border-neutral-300 dark:hover:bg-gray-700 dark:border-zinc-400 justify-around inline-flex items-center rounded-md shadow-sm cursor-pointer"
+        class="w-[36px] h-[36px] border hover:bg-gray-100 border-neutral-300 dark:hover:bg-gray-700 dark:border-zinc-400 justify-around inline-flex items-center rounded-md shadow-sm cursor-pointer"
         @click="useToggleDark">
         <span v-html="icon"></span>
     </button>
