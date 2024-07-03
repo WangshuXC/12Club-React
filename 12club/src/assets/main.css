@@ -7,6 +7,10 @@
 	@apply bg-white dark:bg-slate-800;
 }
 
+.base-bg-100 {
+	@apply bg-slate-100 dark:bg-slate-700;
+}
+
 .base-text {
 	@apply text-black dark:text-white;
 }
@@ -19,4 +23,17 @@
 .mobile-head-link {
 	@apply head-link;
 	@apply text-2xl my-0 mr-2;
+}
+
+.carouselSelect {
+	@apply w-[30.5%] opacity-100 z-10 border-4 dark:border-white border-slate-500 border-opacity-60;
+}
+
+.carouselEdge {
+	@apply opacity-40 !left-0;
+}
+
+.noAnimation {
+	transition: none;
+	transform: translateZ(0);
 }
