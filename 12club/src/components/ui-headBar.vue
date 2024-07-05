@@ -47,8 +47,6 @@
 		</div>
 	</div>
 
-	<div class="h-[60px] base-bg"></div>
-
 	<div name="mobile-head-bar"
 		class="bg-white flex fixed h-0 w-[100vw] justify-end top-[60px] z-[6000] transition-all lg:hidden md:hidden sm:hidden xl:hidden base-bg"
 		:class="{ 'h-[100vh]': isOpen }">

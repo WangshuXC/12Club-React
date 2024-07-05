@@ -8,12 +8,11 @@
 		height 0.9s ease-in-out;
 }
 
-.imageFad-enter-active,
 .imageFade-leave-active {
 	position: absolute;
 	transition: opacity 0.6s;
 }
-.imageFade-enter,
+
 .imageFade-leave-to {
 	opacity: 0;
 }
