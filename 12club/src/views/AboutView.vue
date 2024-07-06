@@ -7,8 +7,8 @@
 
 <style>
 .background {
-	/* background-image: url('/src/assets/light_LE_auto_x2.jpg'); */
-	background-image: url('/src/assets/mlight_LE_auto_x2.jpg');
+	/* background-image: url('/src/assets/background/light.jpg'); */
+	background-image: url('/src/assets/background/mlight.jpg');
 	background-position: 50% 50%;
 	line-height: 90vh;
 	-webkit-text-fill-color: transparent;
@@ -28,8 +28,8 @@
 }
 
 .dark .background {
-	/* background-image: url("/src/assets/dark_LE_auto_x2.jpg"); */
-	background-image: url('/src/assets/mdark_LE_auto_x2.jpg');
+	/* background-image: url("/src/assets/background/dark.jpg"); */
+	background-image: url('/src/assets/background/mdark.jpg');
 }
 
 

@@ -4,8 +4,9 @@
 	<div class="h-[60px] base-bg"></div>
 
 	<div class="pt-4 flex flex-col items-center justify-center lg:pt-5 md:pt-6 sm:pt-6 xl:pt-16">
-		<div class="w-full lg:w-[80%] md:w-full sm:w-full xl:max-w-[1500px] xl:w-[90%]">
+		<div class="w-full flex flex-col items-center lg:w-[80%] md:w-full sm:w-full xl:max-w-[1600px] xl:w-[80%]">
 			<UiVideoCarousel :videoCarouselList="videoCarouselList"></UiVideoCarousel>
+			<UiLatestUpdate :latestUpdateList="latestUpdateList" class="mt-[7.5rem]"></UiLatestUpdate>
 		</div>
 	</div>
 
@@ -15,8 +16,10 @@
 import { onMounted } from 'vue';
 import { useTestDataStore } from '@/stores/testData'
 import UiVideoCarousel from "@/components/ui-videoCarousel.vue"
+import UiLatestUpdate from "@/components/ui-latestUpdate.vue"
 
 const videoCarouselList = useTestDataStore().videoCarouselList;
+const latestUpdateList = useTestDataStore().latestUpdateList;
 
 onMounted(() => {
 	// 预加载其他页面组件

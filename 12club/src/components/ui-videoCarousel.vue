@@ -1,5 +1,5 @@
 <template>
-    <div class="contentWrap w-full h-[500px] relative">
+    <div class="contentWrap w-full h-[600px] relative">
         <div
             class="infoWrap flex flex-row-reverse absolute top-[5%] right-0 bottom-0 left-[5%] base-bg-100 overflow-hidden rounded-xl">
             <!-- <div class="mask absolute top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,.2)]"></div> -->
@@ -26,8 +26,9 @@
                     }" @click="handleClick(index)"
                         class="carouselItemWrap w-[27%] h-full cursor-pointer overflow-hidden rounded-xl absolute opacity-70 flex items-center"
                         :class="{ carouselSelect: selectedIndex === index, carouselEdge: selectedIndex === (index + 1 + imageList.length) % imageList.length, noAnimation: selectedIndex === (index + 2 + imageList.length) % imageList.length }">
-                        <div class="pb-[55%] w-full relative">
-                            <div class="carouselImage absolute top-0 bottom-0 left-0 right-0 bg-cover border-4 dark:border-white border-slate-500 border-opacity-60"
+                        <div class="w-full relative"
+                            :class="{ 'pb-[75%]': selectedIndex === index, 'pb-[55%]': selectedIndex !== index }">
+                            <div class="carouselImage absolute top-0 bottom-0 left-0 right-0 border-4 dark:border-white border-slate-500 border-opacity-60"
                                 :class="{ 'border-none': selectedIndex === index, 'rounded-xl': selectedIndex !== index, }">
                                 <img :src="imageList[index]" alt="ImageCover" class="object-cover w-full h-full"
                                     :class="{ 'rounded-lg': selectedIndex !== index }">
@@ -59,11 +60,8 @@ interface VideoCarouselItem {
     img: string;
 }
 
-const imageList = ref<string[]>([])
+const imageList = ref<string[]>(props.videoCarouselList.map(item => item.img))
 
-onBeforeMount(() => {
-    imageList.value = props.videoCarouselList.map(item => item.img);
-})
 
 const selectedIndex = ref(0);
 const styleList = ref<string[]>([

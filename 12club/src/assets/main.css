@@ -11,8 +11,16 @@
 	@apply bg-slate-100 dark:bg-slate-700;
 }
 
+.base-bg-200 {
+	@apply bg-slate-200 dark:bg-slate-600;
+}
+
 .base-text {
 	@apply text-black dark:text-white;
+}
+
+.triangleDown-200 {
+	@apply w-0 h-0 border-r-[10px] border-b-[0px] border-l-[10px] border-l-transparent border-r-transparent border-slate-200 dark:border-slate-600 dark:border-l-transparent dark:border-r-transparent;
 }
 
 .head-link {

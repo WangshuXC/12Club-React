@@ -7,7 +7,7 @@
 		}">
 
 		<div class="mx-2 mr-4 flex h-[45px] w-[45px] cursor-pointer justify-center items-center">
-			<img src='https://vio.vin/site-favicon.ico' class="object-cover rounded-xl shadow-md">
+			<img src='@/assets/touxiang.jpg' class="object-cover rounded-xl shadow-md">
 		</div>
 
 		<div
@@ -98,6 +98,10 @@ const links = [
 		href: '/novel',
 	},
 	{
+		name: 'Music',
+		href: '/music',
+	},
+	{
 		name: 'About',
 		href: '/about',
 	},
@@ -161,8 +165,8 @@ function switchRoute(path: string) {
 						: clipPath,
 				},
 				{
-					duration: 1000,
-					easing: 'ease-out',
+					duration: 600,
+					easing: 'ease-in-out',
 					pseudoElement: darkModeStore.isDarkMode
 						? '::view-transition-old(root)'
 						: '::view-transition-new(root)',
