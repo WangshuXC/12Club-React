@@ -1,5 +1,6 @@
 <template>
-	<div class="background bg-cover" ref="background">
+	<div class="background bg-cover h-[200vh] font-sans font-black bg-clip-text text-[37rem] overflow-hidden relative text-center select-none"
+		ref="background">
 		<span>12Club</span>
 	</div>
 </template>
@@ -8,17 +9,9 @@
 .background {
 	/* background-image: url('/src/assets/light_LE_auto_x2.jpg'); */
 	background-image: url('/src/assets/mlight_LE_auto_x2.jpg');
-	background-size: cover;
 	background-position: 50% 50%;
-	height: 200vh;
-	font: 900 37rem '';
 	line-height: 90vh;
-	background-clip: text;
 	-webkit-text-fill-color: transparent;
-	position: relative;
-	text-align: center;
-	overflow: hidden;
-	user-select: none;
 }
 
 .background::before {
@@ -44,18 +37,6 @@
 .background::before {
 	filter: blur(var(--before-blur));
 }
-
-h2 {
-	position: absolute;
-	letter-spacing: 2px;
-	top: 120vh;
-	width: 60%;
-	color: #fff;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: 30px;
-	background-color: rgba(0, 0, 0, .3);
-}
 </style>
 
 <script setup lang="ts">
@@ -66,11 +47,11 @@ const background = ref<HTMLElement | null>(null);
 onMounted(() => {
 	const handleScroll = () => {
 		const scrollY = window.scrollY;
-		const blur = scrollY * 0.01;
+		const blur = scrollY * 0.02;
 
-		if (scrollY >= window.innerHeight * 0.5) {
-			return;
-		}
+		// if (scrollY >= window.innerHeight * 0.5) {
+		// 	return;
+		// }
 
 		if (scrollY !== 0) {
 			if (background.value) {

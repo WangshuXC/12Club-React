@@ -12,8 +12,16 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import { useTestDataStore } from '@/stores/testData'
 import UiVideoCarousel from "@/components/ui-videoCarousel.vue"
 
 const videoCarouselList = useTestDataStore().videoCarouselList;
+
+onMounted(() => {
+	// 预加载其他页面组件
+	import('./AnimeView.vue');
+	import('./NovelView.vue');
+	import('./AboutView.vue');
+});
 </script>

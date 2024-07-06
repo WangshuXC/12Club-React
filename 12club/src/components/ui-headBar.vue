@@ -28,9 +28,10 @@
 								'border-transparent': isOutTop,
 							}">
 							<li v-for="link in links" :key="link.href">
-								<RouterLink :to="`${link.href}`" class="head-link" :prefetch="true">
+								<!-- <RouterLink :to="`${link.href}`" class="head-link" :prefetch="true">
 									{{ link.name }}
-								</RouterLink>
+								</RouterLink> -->
+								<div class="head-link" @click="switchRoute(link.href)">{{ link.name }}</div>
 							</li>
 						</ul>
 					</header>
@@ -71,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watchEffect, computed } from "vue"
+import { ref, onMounted, watchEffect, computed, nextTick } from "vue"
 import { useFixedHeader } from 'vue-use-fixed-header'
 import { useWindowScroll } from '@vueuse/core'
 import uiDarkToggle from './ui-darkToggle.vue'
@@ -120,4 +121,53 @@ const { styles } = useFixedHeader(headerRef, {
 	watch: isFixed, // Will perform a check everytime the value changes
 })
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+import { useDarkModeStore } from '../stores/baseStatus';
+const darkModeStore = useDarkModeStore();
+
+function switchRoute(path: string) {
+	// @ts-expect-error experimental API
+	const isAppearanceTransition = document.startViewTransition
+		&& !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+	if (!isAppearanceTransition) {
+		router.push(path)
+		return
+	}
+
+	const x = window.innerWidth / 2
+	const y = window.innerHeight / 2
+	const endRadius = Math.hypot(
+		Math.max(x, innerWidth - x),
+		Math.max(y, innerHeight - y),
+	)
+	// @ts-expect-error: Transition API
+	const transition = document.startViewTransition(async () => {
+		router.push(path)
+		await nextTick()
+	})
+	transition.ready
+		.then(() => {
+			const clipPath = [
+				`circle(0px at ${x}px ${y}px)`,
+				`circle(${endRadius}px at ${x}px ${y}px)`,
+			]
+			document.documentElement.animate(
+				{
+					clipPath: darkModeStore.isDarkMode
+						? [...clipPath].reverse()
+						: clipPath,
+				},
+				{
+					duration: 1000,
+					easing: 'ease-out',
+					pseudoElement: darkModeStore.isDarkMode
+						? '::view-transition-old(root)'
+						: '::view-transition-new(root)',
+				},
+			)
+		})
+}
 </script>
