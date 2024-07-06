@@ -35,7 +35,7 @@ const props = defineProps({
 });
 
 const dataList = ref(props.latestUpdateList);
-const styleList = props.latestUpdateList.map(() => ref({ rotate: 0, scale: 1, opacity: 90, zIndex: 30 }));
+const styleList = props.latestUpdateList.map(() => ref({ rotate: 0, scale: 1, opacity: 0, zIndex: 0 }));
 const handleMouseOver = (index: number) => {
     styleList[index].value.rotate = 40;
     styleList[index].value.scale = 0.9;
