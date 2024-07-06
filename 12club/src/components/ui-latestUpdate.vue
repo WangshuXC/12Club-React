@@ -7,7 +7,7 @@
                 <div class="absolute bottom-[0] left-[5%] w-[90%] h-14 flex flex-col items-center justify-center"
                     :style="{ opacity: styleList[index].value.opacity, transition: 'all 0.3s 0.1s', zIndex: styleList[index].value.zIndex }">
                     <div
-                        class=" w-auto h-full base-bg-100 rounded-2xl p-1 px-6 flex flex-row items-center justify-center">
+                        class=" w-auto h-full base-bg-200 rounded-2xl p-1 px-6 flex flex-row items-center justify-center">
                         <span
                             class="w-full cursor-pointer base-text text-center hover:text-sky-400 hover:font-bold transition text-2xl text-ellipsis whitespace-nowrap overflow-hidden">{{
                                 data.title
