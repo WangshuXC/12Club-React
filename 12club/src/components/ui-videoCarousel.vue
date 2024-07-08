@@ -1,5 +1,5 @@
 <template>
-    <div class="contentWrap w-full h-[600px] relative">
+    <div class="videoCarousel contentWrap w-full h-[600px] relative">
         <div
             class="infoWrap flex flex-row-reverse absolute top-[5%] right-0 bottom-0 left-[5%] base-bg-100 overflow-hidden rounded-xl">
             <!-- <div class="mask absolute top-0 bottom-0 left-0 right-0 bg-[rgba(0,0,0,.2)]"></div> -->
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, onBeforeMount } from 'vue';
+import { ref, defineProps } from 'vue';
 
 const props = defineProps<{
     videoCarouselList: VideoCarouselItem[];
