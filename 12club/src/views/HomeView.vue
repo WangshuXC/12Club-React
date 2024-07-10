@@ -5,9 +5,9 @@
 
 	<div class="pt-4 flex flex-col items-center justify-center lg:pt-5 md:pt-6 sm:pt-6 xl:pt-16">
 		<div class="w-full flex flex-col items-center lg:w-[80%] md:w-full sm:w-full xl:max-w-[1600px] xl:w-[80%]">
-			<UiRecentTrending></UiRecentTrending>
 			<UiVideoCarousel :videoCarouselList="videoCarouselList"></UiVideoCarousel>
 			<UiLatestUpdate :latestUpdateList="latestUpdateList" class="mt-[7.5rem]"></UiLatestUpdate>
+			<UiRecentTrending class="mt-[7.5rem]"></UiRecentTrending>
 		</div>
 	</div>
 

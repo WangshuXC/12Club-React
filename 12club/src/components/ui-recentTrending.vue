@@ -4,12 +4,12 @@
             <div v-for="(item, index) in ['热门番剧', '热门小说', '热门音乐']" :key="index"
                 class="buttonItem h-full relative rounded-3xl flex py-3 px-4 justify-center items-center text-2xl mr-5 select-none"
                 @click="switchTag(index)" ref="buttonItemRefs">
-                <div class="bg-slate-300 absolute rounded-full inset-0 cursor-pointer" :style="{
+                <div class="base-bg absolute rounded-full inset-0 cursor-pointer" :style="{
                     opacity: index !== targetTag ? 0 : 100,
                     transform: index === nowTag ? `translateX(${translateX})` : '',
                     transition: 'transform 0.4s ease-in-out,opacity 0s 0.4s'
                 }" />
-                <span class="relative block z-20 cursor-pointer">{{ item }}</span>
+                <span class="relative block z-20 base-text cursor-pointer">{{ item }}</span>
             </div>
         </div>
         <div class="contentWrap relative w-full h-full mt-5">
@@ -17,8 +17,8 @@
                 class="w-full h-[85%] absolute top-0 left-0 mt-[5%]" style="transition: all 0.4s;"
                 :style="contentWrapList[index]">
                 <div
-                    class="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br base-bg">
-                    <p class="base-text">{{ item }} tab</p>
+                    class="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold bg-gradient-to-br base-bg">
+
                 </div>
             </div>
         </div>
@@ -28,6 +28,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+// 控制切换页面
 const nowTag = ref(0);
 const targetTag = ref(0);
 const translateX = ref('');
@@ -48,15 +49,15 @@ const generaContentList = (count: number) => {
 
 const contentWrapList = computed(() => generaContentList(3));
 
-const switchContentItems = () => {
-    [contentWrapList.value[nowTag.value], contentWrapList.value[targetTag.value]] = [
-        contentWrapList.value[targetTag.value],
-        contentWrapList.value[nowTag.value],
-    ];
-};
-
 const buttonItemRefs = ref<Array<HTMLElement | null>>([]);
 const switchTag = (index: number) => {
+    const switchContentItems = () => {
+        [contentWrapList.value[nowTag.value], contentWrapList.value[targetTag.value]] = [
+            contentWrapList.value[targetTag.value],
+            contentWrapList.value[nowTag.value],
+        ];
+    };
+
     nowTag.value = targetTag.value;
     targetTag.value = index;
     switchContentItems();
@@ -71,5 +72,3 @@ const switchTag = (index: number) => {
 
 
 </script>
-
-<style></style>
