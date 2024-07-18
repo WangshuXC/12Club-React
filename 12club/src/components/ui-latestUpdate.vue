@@ -2,7 +2,7 @@
     <div class="latestUpdate w-[80%] 2xl:h-96 2k:h-96 1k:h-80 xl:h-80 base-bg-100 rounded-xl p-2.5">
         <div class="title h-[2.5rem] text-2xl font-bold base-text ml-5">最近更新</div>
         <div class="base-bg w-full h-[calc(100%-2.5rem)] rounded-lg p-4 flex flex-row justify-center">
-            <div v-for="data, index in dataList" :key="index" class="h-full w-[calc(20% - 6rem)] mx-4 relative"
+            <div v-for="data, index in latestUpdateList" :key="index" class="h-full w-[calc(20% - 6rem)] mx-4 relative"
                 @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
                 <div class="absolute bottom-[30%] left-[5%] w-[90%] h-14 flex flex-col items-center justify-center"
                     :style="{
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps({
     latestUpdateList: {
@@ -44,8 +44,8 @@ const props = defineProps({
         required: true
     }
 });
-
-const dataList = ref(props.latestUpdateList);
+const { latestUpdateList } = props
+// const dataList = ref(props.latestUpdateList);
 const styleList = props.latestUpdateList.map(() => ref({ rotate: 0, scalePic: 1, scaleTitle: 0, opacity: 0, zIndex: 0 }));
 const handleMouseOver = (index: number) => {
     styleList[index].value.rotate = 40;

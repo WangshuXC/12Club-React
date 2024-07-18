@@ -7,7 +7,7 @@
 		<div class="w-full flex flex-col items-center lg:w-[80%] md:w-full sm:w-full xl:max-w-[1600px] xl:w-[80%]">
 			<UiVideoCarousel :videoCarouselList="videoCarouselList"></UiVideoCarousel>
 			<UiLatestUpdate :latestUpdateList="latestUpdateList" class="mt-[7.5rem]"></UiLatestUpdate>
-			<UiRecentTrending class="mt-[7.5rem]"></UiRecentTrending>
+			<UiRecentTrending :recentTrendingList="recentTrendingList" class="mt-[7.5rem]"></UiRecentTrending>
 		</div>
 	</div>
 
@@ -22,6 +22,7 @@ import UiRecentTrending from "@/components/ui-recentTrending.vue"
 
 const videoCarouselList = useTestDataStore().videoCarouselList;
 const latestUpdateList = useTestDataStore().latestUpdateList;
+const recentTrendingList = useTestDataStore().recentTrendingList;
 
 onMounted(() => {
 	// 预加载其他页面组件

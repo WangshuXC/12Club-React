@@ -10,7 +10,7 @@
                 <div
                     class="title base-text mb-2 w-full h-[40px] overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-3xl pl-5 pr-10">
                     {{ props.videoCarouselList[selectedIndex].title }}</div>
-                <div class="description base-text mb-3 w-full h-16 pl-5 pr-10 text-sm">
+                <div class="description base-text mb-3 w-full pl-5 pr-10 text-sm">
                     {{ props.videoCarouselList[selectedIndex].summary }}
                 </div>
                 <div class="buttonWrap pl-5 flex">
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps<{
     videoCarouselList: VideoCarouselItem[];
