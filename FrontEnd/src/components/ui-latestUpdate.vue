@@ -1,8 +1,8 @@
 <template>
-    <div class="latestUpdate w-[80%] 2xl:h-96 2k:h-96 1k:h-80 xl:h-80 base-bg-100 rounded-xl p-2.5">
+    <div class="latestUpdate w-[80%] h-auto base-bg-100 rounded-xl p-2.5">
         <div class="title h-[2.5rem] text-2xl font-bold base-text ml-5">最近更新</div>
-        <div class="base-bg w-full h-[calc(100%-2.5rem)] rounded-lg p-4 flex flex-row justify-center">
-            <div v-for="data, index in latestUpdateList" :key="index" class="h-full w-[calc(20% - 6rem)] mx-4 relative"
+        <div class="base-bg w-full h-auto rounded-lg p-4 flex flex-row justify-center gap-4">
+            <div v-for="data, index in latestUpdateList" :key="index" class="relative"
                 @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
                 <div class="absolute bottom-[30%] left-[5%] w-[90%] h-14 flex flex-col items-center justify-center"
                     :style="{
@@ -21,7 +21,7 @@
                         </span>
                     </div>
                 </div>
-                <img :src="data.img" class="h-full w-full rounded-xl cursor-pointer"
+                <img :src="data.img" class="h-full rounded-xl cursor-pointer"
                     :class="{ 'shadow-[0_8px_16px_rgb(0_0_0/0.4)]': styleList[index].value.opacity !== 0 }" :style="{
                         zIndex: styleList[index].value.zIndex + 10,
                         transform: `
@@ -29,7 +29,7 @@
                             translateY(-${styleList[index].value.rotate * 0.08}rem) 
                             scale(${styleList[index].value.scalePic})`,
                         transition: 'all 0.4s'
-                    }">
+                    }" />
             </div>
         </div>
     </div>

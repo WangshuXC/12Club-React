@@ -8,7 +8,7 @@
                     opacity: index !== targetTag ? 0 : 100,
                     transform: index === nowTag ? `translateX(${translateX})` : '',
                     transition: 'transform 0.4s ease-in-out,opacity 0s 0.4s'
-                }" />
+                }"></div>
                 <span class="relative block z-20 base-text cursor-pointer">{{ item.tab }}</span>
             </div>
         </div>
@@ -98,6 +98,7 @@ const switchTag = (index: number) => {
     }
 }
 
+// 控制hover效果
 const showTooltipFlag = ref(false);
 const tooltipContent = ref('');
 const tooltipTop = ref(0);
