@@ -1,143 +1,48 @@
-import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+import VideoCarousel from "@/components/public/video-carousel";
+import { Metadata } from "next";
 
-export function Home2() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+export const metadata: Metadata = {
+  title: "Home",
+};
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
-}
+const videoCarouselList = [
+  {
+    title: "不时用俄语小声说真心话的邻桌艾莉同学",
+    summary: `坐在久世政近邻桌的艾莉同学，看政近的目光总是很冷淡。然而她又时不时地用俄语向他表露心意……而这些话语从未被政近错过。原来，政近其实有着母语级别的俄语听力！！艾莉同学对此一无所知，时不时地说着真心话。政近明明能听懂她的心意，却要装作听不懂。令人止不住嘴角上扬的恋爱故事究竟会如何发展？！`,
+    img: "/carousel/01.webp",
+  },
+  {
+    title: "百变的七仓同学",
+    summary: `憧憬着成为像漫画里那样超人气角色的学长“北浜瑛二”，以及在演技方面天赋异禀的“七仓凛” 。七仓同学在和学长的相处过程中，常常扮演不同性格作为演技练习，小剧场式的相处模式让他们的校园生活变得有趣许多。同处戏剧社的两人之间会产生什么火花？ 七仓凛能够以真实的自己将心意传达给学长吗？！`,
+    img: "/carousel/02.webp",
+  },
+  {
+    title: "青春猪头少年不会梦到兔女郎学姐",
+    summary: `青春期症候群——这是一种只发生在易敏感和不稳定的青春期的、不可思议的现象。例如，在梓川咲太面前出现的野生兔女郎。她的真实身份是高中高年级学生，明星活动休止的女演员樱岛麻衣。她迷人的身姿，不知为何在周围的人眼里看不出来。咲太决定解开这一谜题。在与麻衣一起度过的时间里，咲太知道了她秘密的想法……女主人公们一个接一个地出现在咲太的周围，她们都有着“青春期症候群”。在天空和大海都很闪耀的小镇上，开始了令人激动的故事。`,
+    img: "/carousel/03.webp",
+  },
+  {
+    title: "迷宫饭",
+    summary: `迷宫饭。是“吃”，还是“被吃”，这是一个问题。在迷宫深处，莱欧斯眼看着红龙吃掉了妹妹，自己在将死之际回到了地面。尽管他想要马上再次挑战迷宫，但是钱和粮食都被留在了最深处。面对妹妹可能会被消化掉的危机，莱欧斯下定了决心。“食物就在迷宫中自给自足吧！”史莱姆，蛇尾鸡，宝箱怪，还有龙！吃着来袭的魔物们，打通迷宫吧，冒险者！`,
+    img: "/carousel/04.webp",
+  },
+  {
+    title: "葬送的芙莉莲",
+    summary: `寿命逾千年的魔法使芙莉莲，以曾经共同战胜魔王的勇者辛美尔之死为契机，踏上了了解人类的旅途。邂逅了同属勇者小队的僧侣海塔与战士艾泽分别培养出的菲伦与休塔尔克，芙莉莲与二人一同前往灵魂安眠之地。为了前去需要【一级魔法使】资格，因此芙莉莲与菲伦前往魔法都市维萨斯特，参加一级魔法使选拔测验。在那里有着形形色色的卓越魔法使…此刻，最顶尖的魔法将在维萨斯特展开激烈碰撞！`,
+    img: "/carousel/05.webp",
+  },
+  {
+    title: "孤独摇滚",
+    summary: `绰号“小孤独”的后藤独，是一个喜爱吉他的孤独少女。经常在家里独自弹奏吉他，但因为一些事情，加入了伊地知虹夏领衔的“纽带乐队”。不敢在他人面前演奏的后藤，能否成为一个出色的乐队成员呢……`,
+    img: "/carousel/06.webp",
+  },
+];
 
 export default function Home() {
   return (
-    <CardContainer className="inter-var dark">
-      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-        <CardItem
-          translateZ="50"
-          className="text-xl font-bold text-neutral-600 dark:text-white"
-        >
-          Make things float in air
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-        >
-          Hover over this card to unleash the power of CSS perspective
-        </CardItem>
-        <CardItem translateZ="70" className="w-full h-auto mt-4">
-          <Image
-            src="https://i0.hdslb.com/bfs/bangumi/94466dbf154b7da5fa0f1f20dae476efe8892368.jpg@330w_442h.webp"
-            height="1600"
-            width="900"
-            className="h-full w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt="thumbnail"
-          />
-        </CardItem>
-        <div className="flex justify-center items-center mt-6">
-          <CardItem
-            translateZ={40}
-            as="button"
-            className="px-4 py-6 h-10 rounded-xl bg-black dark:bg-white dark:text-black text-white text-3xl flex items-center justify-center"
-          >
-            Play
-          </CardItem>
-        </div>
-      </CardBody>
-    </CardContainer>
+    <>
+      <VideoCarousel videoCarouselList={videoCarouselList} />
+    </>
   );
 }

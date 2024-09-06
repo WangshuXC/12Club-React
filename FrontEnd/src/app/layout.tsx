@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Headbar } from "@/components/public/head-bar";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Headbar></Headbar>
+        <div className="pt-8 px-[5%] flex flex-col items-center justify-center">
+          {children}
+        </div>
       </body>
     </html>
   );
