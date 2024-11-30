@@ -18,7 +18,7 @@ export function Headbar() {
     {
       title: "Home",
       icon: <IconHome className="h-full" />,
-      href: "#",
+      href: "/",
     },
 
     {
@@ -58,7 +58,20 @@ export function Headbar() {
     console.log("submitted");
   };
   return (
-    <div className="flex items-center justify-between w-full mt-4 h-[70px] gap-4 px-[5%] z-20">
+    <div className="flex items-center justify-between w-full fixed top-0 pt-4 h-[70px] gap-4 px-[5%] z-20">
+      <div
+        className="absolute top-0 left-0 h-[80px] w-full pointer-events-none transform-gpu"
+        style={{
+          maskImage: "linear-gradient(#000 40%, transparent)",
+          backdropFilter: "blur(10px) saturate(180%)",
+        }}
+      />
+      <div
+        className="absolute top-0 left-0 opacity-70 h-[80px] w-full pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom,#fff, transparent)",
+        }}
+      />
       <div className="w-fit mr-auto">
         <motion.div
           className="relative z-20"

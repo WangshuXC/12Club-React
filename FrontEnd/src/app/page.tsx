@@ -1,5 +1,7 @@
 import React from "react";
 import VideoCarousel from "@/components/public/video-carousel";
+import { RecentTrending } from "@/components/public/recent-trending";
+// import { ExpandableCard } from "@/components/public/expandable-card";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -43,6 +45,8 @@ export default function Home() {
   return (
     <>
       <VideoCarousel videoCarouselList={videoCarouselList} />
+      <RecentTrending />
+      {/* <ExpandableCard></ExpandableCard> */}
     </>
   );
 }

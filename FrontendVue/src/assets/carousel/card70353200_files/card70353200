@@ -1,7 +1,0 @@
-
-			if (/android/gi.test(window.navigator.userAgent)) {
-				import("/node_modules/@tencent/search-global-css/dist/globalS-android.min.css")
-			} else {
-				import("/node_modules/@tencent/search-global-css/dist/globalS-ios.min.css")
-			}
-		

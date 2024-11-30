@@ -101,12 +101,13 @@ const VideoCarousel = ({
                   }`}
                 >
                   <div
-                    className={`carouselImage absolute top-0 bottom-0 left-0 right-0 border-4 dark:border-white border-slate-500 border-opacity-60 ${
+                    className={`carouselImage absolute inset-0 overflow-hidden border-4 dark:border-white border-slate-500 border-opacity-60 ${
                       selectedIndex === index ? "border-none" : "rounded-xl"
                     }`}
                   >
                     <Image
                       src={item}
+                      sizes="100%"
                       alt="ImageCover"
                       fill
                       className={`object-cover ${
